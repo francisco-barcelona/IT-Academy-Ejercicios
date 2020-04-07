@@ -1,0 +1,21 @@
+<script>
+   var nombre = ["P","a","c","o"];
+   var vocal = ["A", "a","e","E","i","I","o","O","u","U"];
+   var found = false;
+   for (var i = 0; i < nombre.length; i++) {
+
+    for (var j = 0; j < vocal.length; j++) {
+        if (nombre[i] == vocal[j]) {
+            found = true;
+            console.log("Vocal");
+        }
+    }
+
+    if (found == false) {
+        console.log("Consonant");
+    }
+
+    found = false; 
+
+}
+</script>
