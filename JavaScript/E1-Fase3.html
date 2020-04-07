@@ -1,0 +1,14 @@
+<script>
+  var diccionario = new Map();
+  var nombre = new Array("P","a","c","o");
+  
+  for(var i = 0; i < nombre.length; i++)
+  {
+    if(!diccionario.has(nombre[i])) {
+      diccionario.set(nombre[i],1);
+    } else {
+     diccionario[nombre[i]] = diccionario.get(nombre[i]) + 1;
+    }
+  }
+console.log(diccionario);
+</script>
