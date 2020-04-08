@@ -16,7 +16,7 @@ namespace E2_Variables
             int nAnyTraspas = 4;
             int totalAnys = 0;
 
-            totalAnys = (any - primerTraspas) / 4;
+            totalAnys = (any - primerTraspas) / nAnyTraspas;
             Console.WriteLine(totalAnys);
 
             
