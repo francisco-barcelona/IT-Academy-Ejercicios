@@ -9,6 +9,7 @@ namespace E2_Variables
             String nom = "Paco";
             String cognom1 = "Rivas";
             String cognom2 = "Martín";
+            
             int dia = 7;
             int mes = 4;
             int any = 2020;
