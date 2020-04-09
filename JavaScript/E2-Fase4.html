@@ -1,0 +1,23 @@
+<script>
+    var anyTraspas = 1948;
+    var nAnyTrapas = 4;
+    var totalAnyTraspas
+    var nom = "Francisco";
+    var cognom1 = "Rivas";
+    var cognom2 = "Martín";
+    var nomComplet = nom + " " + cognom1 + " " + cognom2;
+    var dia = 14;
+    var mes = 08;
+    var any = 1978;
+    var dataNaixement = dia + "/" + mes + "/" + any;
+    var strAnyTraspas = "El meu any de naixement és de traspàs";
+    var strNotAnyTraspas = "El meu any de naixement no és de traspàs";
+
+    console.log(nomComplet);
+    console.log(dataNaixement);
+    if(any % nAnyTrapas == 0){
+        console.log(strAnyTraspas);
+    } else {
+        console.log(strNotAnyTraspas);
+    }    
+</script>
