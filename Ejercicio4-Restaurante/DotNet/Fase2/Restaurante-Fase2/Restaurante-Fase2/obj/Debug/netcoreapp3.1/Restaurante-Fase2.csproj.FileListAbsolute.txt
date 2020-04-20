@@ -1,0 +1,13 @@
+C:\Users\Pak\Documents\Curso .NET\Ejercicios\Ejercicio4-Restaurante\DotNet\Fase2\Restaurante-Fase2\Restaurante-Fase2\bin\Debug\netcoreapp3.1\Restaurante-Fase2.exe
+C:\Users\Pak\Documents\Curso .NET\Ejercicios\Ejercicio4-Restaurante\DotNet\Fase2\Restaurante-Fase2\Restaurante-Fase2\bin\Debug\netcoreapp3.1\Restaurante-Fase2.deps.json
+C:\Users\Pak\Documents\Curso .NET\Ejercicios\Ejercicio4-Restaurante\DotNet\Fase2\Restaurante-Fase2\Restaurante-Fase2\bin\Debug\netcoreapp3.1\Restaurante-Fase2.runtimeconfig.json
+C:\Users\Pak\Documents\Curso .NET\Ejercicios\Ejercicio4-Restaurante\DotNet\Fase2\Restaurante-Fase2\Restaurante-Fase2\bin\Debug\netcoreapp3.1\Restaurante-Fase2.runtimeconfig.dev.json
+C:\Users\Pak\Documents\Curso .NET\Ejercicios\Ejercicio4-Restaurante\DotNet\Fase2\Restaurante-Fase2\Restaurante-Fase2\bin\Debug\netcoreapp3.1\Restaurante-Fase2.dll
+C:\Users\Pak\Documents\Curso .NET\Ejercicios\Ejercicio4-Restaurante\DotNet\Fase2\Restaurante-Fase2\Restaurante-Fase2\bin\Debug\netcoreapp3.1\Restaurante-Fase2.pdb
+C:\Users\Pak\Documents\Curso .NET\Ejercicios\Ejercicio4-Restaurante\DotNet\Fase2\Restaurante-Fase2\Restaurante-Fase2\obj\Debug\netcoreapp3.1\Restaurante-Fase2.csprojAssemblyReference.cache
+C:\Users\Pak\Documents\Curso .NET\Ejercicios\Ejercicio4-Restaurante\DotNet\Fase2\Restaurante-Fase2\Restaurante-Fase2\obj\Debug\netcoreapp3.1\Restaurante-Fase2.csproj.CoreCompileInputs.cache
+C:\Users\Pak\Documents\Curso .NET\Ejercicios\Ejercicio4-Restaurante\DotNet\Fase2\Restaurante-Fase2\Restaurante-Fase2\obj\Debug\netcoreapp3.1\Restaurante-Fase2.AssemblyInfoInputs.cache
+C:\Users\Pak\Documents\Curso .NET\Ejercicios\Ejercicio4-Restaurante\DotNet\Fase2\Restaurante-Fase2\Restaurante-Fase2\obj\Debug\netcoreapp3.1\Restaurante-Fase2.AssemblyInfo.cs
+C:\Users\Pak\Documents\Curso .NET\Ejercicios\Ejercicio4-Restaurante\DotNet\Fase2\Restaurante-Fase2\Restaurante-Fase2\obj\Debug\netcoreapp3.1\Restaurante-Fase2.dll
+C:\Users\Pak\Documents\Curso .NET\Ejercicios\Ejercicio4-Restaurante\DotNet\Fase2\Restaurante-Fase2\Restaurante-Fase2\obj\Debug\netcoreapp3.1\Restaurante-Fase2.pdb
+C:\Users\Pak\Documents\Curso .NET\Ejercicios\Ejercicio4-Restaurante\DotNet\Fase2\Restaurante-Fase2\Restaurante-Fase2\obj\Debug\netcoreapp3.1\Restaurante-Fase2.genruntimeconfig.cache
