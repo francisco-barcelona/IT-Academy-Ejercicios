@@ -1,0 +1,30 @@
+<script>
+    var preuTotal;
+    var menu = [5];
+    var preuPlat= [5];
+    var comanda = [];
+    var volenMenjar = 1;
+    var j = 0;
+    for(i = 0;i<5;i++){
+        menu[i] = window.prompt("Nom del plat " + i);
+        preuPlat[i] = window.prompt("Preu del plat " + i);
+    }
+
+    for(i = 0;i<5;i++){
+        console.log("Nom del plat " + i);
+        console.log(menu[i]);
+        console.log("Preu del plat " + i);
+        console.log(preuPlat[i]);
+    }
+    
+    while(volenMenjar == 1){
+        volenMenjar = window.prompt("Què volen menjar? (1: Si / 0: No)");
+        if (volenMenjar == 1){
+            comanda[j] = window.prompt("Quin plat desitgen?");
+            j++;
+        } else {
+            console.log("Ara li portem el menjar");
+        }
+        
+    }
+</script>
