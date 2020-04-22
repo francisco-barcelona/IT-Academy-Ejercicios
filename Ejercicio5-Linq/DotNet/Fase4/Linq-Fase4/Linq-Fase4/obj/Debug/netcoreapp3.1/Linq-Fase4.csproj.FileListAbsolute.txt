@@ -1,0 +1,13 @@
+C:\Users\Pak\Documents\Curso .NET\Ejercicios\Ejercicio5-Linq\DotNet\Fase4\Linq-Fase4\Linq-Fase4\bin\Debug\netcoreapp3.1\Linq-Fase4.exe
+C:\Users\Pak\Documents\Curso .NET\Ejercicios\Ejercicio5-Linq\DotNet\Fase4\Linq-Fase4\Linq-Fase4\bin\Debug\netcoreapp3.1\Linq-Fase4.deps.json
+C:\Users\Pak\Documents\Curso .NET\Ejercicios\Ejercicio5-Linq\DotNet\Fase4\Linq-Fase4\Linq-Fase4\bin\Debug\netcoreapp3.1\Linq-Fase4.runtimeconfig.json
+C:\Users\Pak\Documents\Curso .NET\Ejercicios\Ejercicio5-Linq\DotNet\Fase4\Linq-Fase4\Linq-Fase4\bin\Debug\netcoreapp3.1\Linq-Fase4.runtimeconfig.dev.json
+C:\Users\Pak\Documents\Curso .NET\Ejercicios\Ejercicio5-Linq\DotNet\Fase4\Linq-Fase4\Linq-Fase4\bin\Debug\netcoreapp3.1\Linq-Fase4.dll
+C:\Users\Pak\Documents\Curso .NET\Ejercicios\Ejercicio5-Linq\DotNet\Fase4\Linq-Fase4\Linq-Fase4\bin\Debug\netcoreapp3.1\Linq-Fase4.pdb
+C:\Users\Pak\Documents\Curso .NET\Ejercicios\Ejercicio5-Linq\DotNet\Fase4\Linq-Fase4\Linq-Fase4\obj\Debug\netcoreapp3.1\Linq-Fase4.csprojAssemblyReference.cache
+C:\Users\Pak\Documents\Curso .NET\Ejercicios\Ejercicio5-Linq\DotNet\Fase4\Linq-Fase4\Linq-Fase4\obj\Debug\netcoreapp3.1\Linq-Fase4.csproj.CoreCompileInputs.cache
+C:\Users\Pak\Documents\Curso .NET\Ejercicios\Ejercicio5-Linq\DotNet\Fase4\Linq-Fase4\Linq-Fase4\obj\Debug\netcoreapp3.1\Linq-Fase4.AssemblyInfoInputs.cache
+C:\Users\Pak\Documents\Curso .NET\Ejercicios\Ejercicio5-Linq\DotNet\Fase4\Linq-Fase4\Linq-Fase4\obj\Debug\netcoreapp3.1\Linq-Fase4.AssemblyInfo.cs
+C:\Users\Pak\Documents\Curso .NET\Ejercicios\Ejercicio5-Linq\DotNet\Fase4\Linq-Fase4\Linq-Fase4\obj\Debug\netcoreapp3.1\Linq-Fase4.dll
+C:\Users\Pak\Documents\Curso .NET\Ejercicios\Ejercicio5-Linq\DotNet\Fase4\Linq-Fase4\Linq-Fase4\obj\Debug\netcoreapp3.1\Linq-Fase4.pdb
+C:\Users\Pak\Documents\Curso .NET\Ejercicios\Ejercicio5-Linq\DotNet\Fase4\Linq-Fase4\Linq-Fase4\obj\Debug\netcoreapp3.1\Linq-Fase4.genruntimeconfig.cache
