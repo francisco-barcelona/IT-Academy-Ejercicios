@@ -1,0 +1,13 @@
+C:\Users\Pak\Documents\Curso .NET\Ejercicios\Ejercicio5-Linq\DotNet\Fase1\Linq-Fase1\Linq-Fase1\bin\Debug\netcoreapp3.1\Linq-Fase1.exe
+C:\Users\Pak\Documents\Curso .NET\Ejercicios\Ejercicio5-Linq\DotNet\Fase1\Linq-Fase1\Linq-Fase1\bin\Debug\netcoreapp3.1\Linq-Fase1.deps.json
+C:\Users\Pak\Documents\Curso .NET\Ejercicios\Ejercicio5-Linq\DotNet\Fase1\Linq-Fase1\Linq-Fase1\bin\Debug\netcoreapp3.1\Linq-Fase1.runtimeconfig.json
+C:\Users\Pak\Documents\Curso .NET\Ejercicios\Ejercicio5-Linq\DotNet\Fase1\Linq-Fase1\Linq-Fase1\bin\Debug\netcoreapp3.1\Linq-Fase1.runtimeconfig.dev.json
+C:\Users\Pak\Documents\Curso .NET\Ejercicios\Ejercicio5-Linq\DotNet\Fase1\Linq-Fase1\Linq-Fase1\bin\Debug\netcoreapp3.1\Linq-Fase1.dll
+C:\Users\Pak\Documents\Curso .NET\Ejercicios\Ejercicio5-Linq\DotNet\Fase1\Linq-Fase1\Linq-Fase1\bin\Debug\netcoreapp3.1\Linq-Fase1.pdb
+C:\Users\Pak\Documents\Curso .NET\Ejercicios\Ejercicio5-Linq\DotNet\Fase1\Linq-Fase1\Linq-Fase1\obj\Debug\netcoreapp3.1\Linq-Fase1.csprojAssemblyReference.cache
+C:\Users\Pak\Documents\Curso .NET\Ejercicios\Ejercicio5-Linq\DotNet\Fase1\Linq-Fase1\Linq-Fase1\obj\Debug\netcoreapp3.1\Linq-Fase1.csproj.CoreCompileInputs.cache
+C:\Users\Pak\Documents\Curso .NET\Ejercicios\Ejercicio5-Linq\DotNet\Fase1\Linq-Fase1\Linq-Fase1\obj\Debug\netcoreapp3.1\Linq-Fase1.AssemblyInfoInputs.cache
+C:\Users\Pak\Documents\Curso .NET\Ejercicios\Ejercicio5-Linq\DotNet\Fase1\Linq-Fase1\Linq-Fase1\obj\Debug\netcoreapp3.1\Linq-Fase1.AssemblyInfo.cs
+C:\Users\Pak\Documents\Curso .NET\Ejercicios\Ejercicio5-Linq\DotNet\Fase1\Linq-Fase1\Linq-Fase1\obj\Debug\netcoreapp3.1\Linq-Fase1.dll
+C:\Users\Pak\Documents\Curso .NET\Ejercicios\Ejercicio5-Linq\DotNet\Fase1\Linq-Fase1\Linq-Fase1\obj\Debug\netcoreapp3.1\Linq-Fase1.pdb
+C:\Users\Pak\Documents\Curso .NET\Ejercicios\Ejercicio5-Linq\DotNet\Fase1\Linq-Fase1\Linq-Fase1\obj\Debug\netcoreapp3.1\Linq-Fase1.genruntimeconfig.cache
