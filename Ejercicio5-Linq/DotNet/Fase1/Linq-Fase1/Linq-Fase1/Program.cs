@@ -8,10 +8,9 @@ namespace Linq_Fase1
     {
         static void Main(string[] args)
         {
-            int[] listaNumeros = {2, 6, 8, 4, 5, 5, 9, 2, 1, 8, 7, 5, 9, 6, 4};
-            IEnumerable<int> numeros = from n in listaNumeros
-                                       where n % 2 == 0
-                                       select n;
+            IList<int> listaNumeros = new List<int> () { 2, 6, 8, 4, 5, 5, 9, 2, 1, 8, 7, 5, 9, 6, 4 };
+            var numeros = listaNumeros.Where(s => s % 2 == 0).ToList<int>();
+            
             foreach(int numero in numeros)
             {
                 Console.WriteLine(numero);
