@@ -9,16 +9,10 @@ namespace Linq_Fase4
     {
         static void Main(string[] args)
         {
-            String[] listaNombres = {"David", "Sergio", "Maria", "Laura", "Oscar", "Julia", "Oriol"};
-            IEnumerable<String> nombresEmpiezanO = from n in listaNombres
-                                                   where n.Contains("O")
-                                                   select n;
-            IEnumerable<String> nombresLargos6 = from n in listaNombres
-                                                 where n.Length > 6
-                                                 select n;
-            IEnumerable<String> nombresOrdenados = from n in listaNombres
-                                                   orderby n descending
-                                                   select n;
+            IList<string> listaNombres = new List<string>() { "David", "Sergio", "Maria", "Laura", "Oscar", "Julia", "Oriol" };
+            var nombresEmpiezanO = listaNombres.Where(s => s.Contains("O")).ToList<string>();
+            var nombresLargos6 = listaNombres.Where(s => s.Length > 6).ToList<string>();
+            var nombresOrdenados = listaNombres.OrderByDescending(s=>s.Substring(0));
 
             Console.WriteLine("Noms que comencen amb O: ");
             foreach (String nombre in nombresEmpiezanO){
