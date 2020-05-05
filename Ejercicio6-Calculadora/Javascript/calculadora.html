@@ -10,45 +10,51 @@
 </div>
 
 <script>
+function Numero1()
+{
+    var num1Text = document.getElementById("Num1").value;
+    return (num1Text);
+}
+
+function Numero2()
+{
+    var num2Text =  document.getElementById("Num2").value;
+    return (num2Text);
+}
+
+function Resultado(num1Text,num2Text,s)
+{
+    if(isNaN(num1Text)){
+        alert("Introduzca un número válido en la casilla Número 1");
+    } else if(isNaN(num2Text)){
+        alert("Introduzca un número válido en la casilla Número 2");
+    } else {
+        alert(s);
+    } 
+}
 
 function Sumar()
 {
-    var num1Text = document.getElementById("Num1").value;
-    var num2Text =  document.getElementById("Num2").value;
-
-    var s = "num1: " + num1Text + " + " + " num2: " +num2Text + " = " + (parseFloat(num1Text)+parseFloat(num2Text));
-
-    alert(s);
+    var s = "num1: " + Numero1() + " + " + " num2: " +Numero2() + " = " + (parseFloat(Numero1())+parseFloat(Numero2()));
+    Resultado(Numero1(),Numero2(),s);      
 }
 
 function Restar()
 {
-    var num1Text = document.getElementById("Num1").value;
-    var num2Text =  document.getElementById("Num2").value;
-
-    var s = "num1: " + num1Text + " - " + " num2: " +num2Text + " = " + (parseFloat(num1Text)-parseFloat(num2Text));
-
-    alert(s);
+    var s = "num1: " + Numero1() + " + " + " num2: " +Numero2() + " = " + (parseFloat(Numero1())-parseFloat(Numero2()));
+    Resultado(Numero1(),Numero2(),s); 
 }
 
 function Multiplicar()
 {
-    var num1Text = document.getElementById("Num1").value;
-    var num2Text =  document.getElementById("Num2").value;
-
-    var s = "num1: " + num1Text + " * " + " num2: " +num2Text + " = " + (parseFloat(num1Text)*parseFloat(num2Text));
-
-    alert(s);
+    var s = "num1: " + Numero1() + " + " + " num2: " +Numero2() + " = " + (parseFloat(Numero1())*parseFloat(Numero2()));
+    Resultado(Numero1(),Numero2(),s); 
 }
 
 function Dividir()
 {
-    var num1Text = document.getElementById("Num1").value;
-    var num2Text =  document.getElementById("Num2").value;
-
-    var s = "num1: " + num1Text + " / " + " num2: " +num2Text + " = " + (parseFloat(num1Text)/parseFloat(num2Text));
-
-    alert(s);
+    var s = "num1: " + Numero1() + " + " + " num2: " +Numero2() + " = " + (parseFloat(Numero1())/parseFloat(Numero2()));
+    Resultado(Numero1(),Numero2(),s); 
 }
 
 </script>
