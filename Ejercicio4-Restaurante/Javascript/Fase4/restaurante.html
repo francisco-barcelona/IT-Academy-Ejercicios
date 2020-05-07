@@ -1,0 +1,137 @@
+<script>
+    var preuTotal = 0;
+    var menu = [];
+    var preuPlat= [];
+    var comanda = [];
+    var volenMenjar = 1;
+    var platDemanat;
+    var j = 0;
+    var bitllet1;
+    var bitllet5;
+    var bitllet10;
+    var bitllet20;
+    var bitllet50;
+    var bitllet100;
+    var bitllet200;
+    var bitllet500;
+    var dinersClient;
+    var cambio;
+
+    for(i = 0;i<5;i++){
+        menu[i] = window.prompt("Nom del plat " + i);
+        preuPlat[i] = window.prompt("Preu del plat " + i);
+    }
+
+    for(i = 0;i<5;i++){
+        console.log("Nom del plat " + i);
+        console.log(menu[i]);
+        console.log("Preu del plat " + i);
+        console.log(preuPlat[i]);
+    }
+    
+    while(volenMenjar == 1){
+        volenMenjar = window.prompt("Què volen menjar? (1: Si / 0: No)");
+        if (volenMenjar == 1){
+            platDemanat = window.prompt("Quin plat desitgen?");
+            // Si el plato pedido no existe, no se actualiza el índice de comanda para que lo pise el siguiente
+            // plato si existe. En caso de que no se pida más, queda en una variable que no afecta al
+            // array comanda que sólo contiene info correcta 
+            if(menu.indexOf(platDemanat)==-1){
+                console.log("Aquest plat no existeix al menú");
+            } else{
+                comanda[j] = platDemanat;
+                preuTotal = preuTotal + parseInt(preuPlat[menu.indexOf(platDemanat)]);
+                j++;
+            }            
+        } else {
+            console.log("Ara li portem el menjar");
+        }
+
+    for(i=0;i<comanda.length;i++){
+        console.log(comanda[i]);
+    }
+
+    console.log(preuTotal)
+        
+    }
+
+    // cambio
+
+    dinersClient = window.prompt("Quants diners dóna el client?");
+    cambio = dinersClient - preuTotal;
+    console.log("El seu canvi és " + cambio);
+    if((cambio % 500) > 0)
+        {
+            bitllet500 = parseInt(cambio / 500);
+            cambio = cambio - (bitllet500 * 500);
+        }
+    if((cambio % 200) > 0)
+        {
+            bitllet200 = parseInt(cambio / 200);
+            cambio = cambio - (bitllet200 * 200);
+        }
+    if ((cambio % 100) > 0)
+        {
+            bitllet100 = parseInt(cambio / 100);
+            cambio = cambio - (bitllet100 * 100);
+        }
+    if ((cambio % 50) > 0)
+        {
+            bitllet50 = parseInt(cambio / 50);
+            cambio = cambio - (bitllet50 * 50);
+        }
+    if ((cambio % 20) > 0)
+        {
+            bitllet20 = parseInt(cambio / 20);
+            cambio = cambio - (bitllet20 * 20);
+        }
+    if ((cambio % 10) > 0)
+        {
+            bitllet10 = parseInt(cambio / 10);
+            cambio = cambio - (bitllet10 * 10);
+        }
+    if ((cambio % 5) > 0)
+        {
+            bitllet5 = parseInt(cambio / 5);
+            cambio = cambio - (bitllet5 * 5);
+        }
+    if (cambio > 0)
+        {
+            bitllet1 = cambio;
+            cambio = cambio - bitllet1;
+        }
+
+    if (bitllet500 > 0)
+        {
+            console.log(bitllet500 + " bitllet/s de 500 euros");
+        }
+    if (bitllet200 > 0)
+        {
+            console.log(bitllet200 + " bitllet/s de 200 euros");
+        }
+    if (bitllet100 > 0)
+        {
+            console.log(bitllet100 + " bitllet/s de 100 euros");
+        }
+    if (bitllet50 > 0)
+        {
+            console.log(bitllet50 + " bitllet/s de 50 euros");
+        }
+    if (bitllet20 > 0)
+        {
+            console.log(bitllet20 + " bitllet/s de 20 euros");
+        }
+    if (bitllet10 > 0)
+        {
+            console.log(bitllet10 + " bitllet/s de 10 euros");
+        }
+    if (bitllet5 > 0)
+        {
+            console.log(bitllet5 + " bitllet/s de 5 euros");
+        }
+    if (bitllet1 > 0)
+        {
+            console.log(bitllet1 + " moneda/s de 1 euros");
+        }
+    
+</script>
