@@ -1,60 +1,158 @@
 <div>
-    <h1>SuperCalculadora IT Academy</h1>
-    <h2>Tan Rápida Como Tu Ordenador</h2>
-    <p>Número 1: <input id="Num1" type="text" /></p>
-    <p>Número 2: <input id="Num2" type="text" /></p>
-    <input type="button" value="Sumar" onclick="Sumar()" />
-    <input type="button" value="Restar" onclick="Restar()" />
-    <input type="button" value="Multiplicar" onclick="Multiplicar()" />
-    <input type="button" value="Dividir" onclick="Dividir()" />
+    <table>
+    <thead>
+        <h1>Calculadora</h1>
+    </thead>
+        <tbody>
+            <input id="pantalla" type="text" style="text-align: right"/>
+            <p><input type="button" value="Clear" onclick="Clear()" />
+            </p>
+            <tr>
+                <th><input type="button" id="1" value=1 onclick="Escribir(1)" /></th>
+                <th><input type="button" id="2" value=2 onclick="Escribir(2)" /></th>
+                <th><input type="button" id="3" value=3 onclick="Escribir(3)" /></th>
+                <th><input type="button" id="+" value="+" onclick="PrimerOperando(1)" /></th>
+            </tr>
+            <tr>
+                <th><input type="button" value="4" onclick="Escribir(4)" /></th>
+                <th><input type="button" value="5" onclick="Escribir(5)" /></th>
+                <th><input type="button" value="6" onclick="Escribir(6)" /></th>
+                <th><input type="button" value="-" onclick="PrimerOperando(2)" /></th>
+            </tr>
+            <tr>
+                <th><input type="button" value="7" onclick="Escribir(7)" /></th>
+                <th><input type="button" value="8" onclick="Escribir(8)" /></th>
+                <th><input type="button" value="9" onclick="Escribir(9)" /></th>
+                <th><input type="button" value="*" onclick="PrimerOperando(3)" /></th>
+            </tr>
+            <tr>
+                <th><input type="button" value="0" onclick="Escribir(0)" /></th>
+                <th><input type="button" value="." onclick="Escribir('.')" /></th>
+                <th><input type="button" value="=" onclick="SegundoOperando()" /></th>
+                <th><input type="button" value="/" onclick="PrimerOperando(4)" /></th>
+            </tr>
+        </tbody>
+    
+</table>
 </div>
 
 <script>
-function Numero1()
-{
-    var num1Text = document.getElementById("Num1").value;
-    return (num1Text);
+    var numero1 = 0;
+    var numero2 = 0;
+    var operacion = 0;
+
+function Clear(){
+    document.getElementById('pantalla').value='';
 }
 
-function Numero2()
-{
-    var num2Text =  document.getElementById("Num2").value;
-    return (num2Text);
+function Escribir(num){
+    document.getElementById('pantalla').value=document.getElementById('pantalla').value + num;
+    return;
+    
 }
 
-function Resultado(num1Text,num2Text,s)
+function setNumero1(num)
 {
-    if(isNaN(num1Text)){
-        alert("Introduzca un número válido en la casilla Número 1");
-    } else if(isNaN(num2Text)){
-        alert("Introduzca un número válido en la casilla Número 2");
+    numero1 = num;
+}
+
+function getNumero1()
+{
+    return(numero1);
+}
+
+function setNumero2(num)
+{
+    numero2 =  num;
+}
+
+function getNumero2()
+{
+    return(numero2);
+}
+
+function setOperacion(oper){
+    operacion = oper;
+}
+
+function getOperacion(){
+    return(operacion);
+}
+
+function PrimerOperando(oper){
+    var num1 = document.getElementById('pantalla').value;
+    if (Validacion(num1) == false){
+        setNumero1(num1);
+        setOperacion(oper);
+        Clear();
+    }    
+}
+
+function SegundoOperando(){
+    var num2 = document.getElementById('pantalla').value;
+    if (Validacion(num2) == false){
+        setNumero2(num2);
+        Clear();
+        Operar();
+    }    
+}
+
+function Validacion(num)
+{
+    if(isNaN(num)){
+        document.getElementById('pantalla').value = "Introduzca un número válido en la pantalla";
+        return true;
     } else {
-        alert(s);
-    } 
+        return false;
+    }
 }
 
-function Sumar()
-{
-    var s = "num1: " + Numero1() + " + " + " num2: " +Numero2() + " = " + (parseFloat(Numero1())+parseFloat(Numero2()));
-    Resultado(Numero1(),Numero2(),s);      
+function Operar(){
+    if(getOperacion() == 1){
+        Sumar(getNumero1(),getNumero2());
+        LimpiarValores();
+    } else if(getOperacion() == 2){
+        Restar(getNumero1(),getNumero2());
+        LimpiarValores();
+    } else if(getOperacion()==3){
+        Multiplicar(getNumero1(),getNumero2());
+        LimpiarValores();
+    } else if(getOperacion()==4){
+        Dividir(getNumero1(),getNumero2());
+        LimpiarValores();
+    } else {
+        document.getElementById('pantalla').value = "Operación no definida";
+    }
 }
 
-function Restar()
+function Sumar(num1,num2)
 {
-    var s = "num1: " + Numero1() + " + " + " num2: " +Numero2() + " = " + (parseFloat(Numero1())-parseFloat(Numero2()));
-    Resultado(Numero1(),Numero2(),s); 
+    var total = parseFloat(num1)+parseFloat(num2);
+    document.getElementById('pantalla').value= total;  
 }
 
-function Multiplicar()
+function Restar(num1,num2)
 {
-    var s = "num1: " + Numero1() + " + " + " num2: " +Numero2() + " = " + (parseFloat(Numero1())*parseFloat(Numero2()));
-    Resultado(Numero1(),Numero2(),s); 
+    var total = parseFloat(num1)-parseFloat(num2);
+    document.getElementById('pantalla').value= total;   
 }
 
-function Dividir()
+function Multiplicar(num1,num2)
 {
-    var s = "num1: " + Numero1() + " + " + " num2: " +Numero2() + " = " + (parseFloat(Numero1())/parseFloat(Numero2()));
-    Resultado(Numero1(),Numero2(),s); 
+    var total = parseFloat(num1)*parseFloat(num2);
+    document.getElementById('pantalla').value= total;
+}
+
+function Dividir(num1,num2)
+{
+    var total = parseFloat(num1) / parseFloat(num2);
+    document.getElementById('pantalla').value= total;
+}
+
+function LimpiarValores(){
+    setNumero1(0);
+    setNumero2(0);
+    setOperacion(0);
 }
 
 </script>
