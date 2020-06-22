@@ -5,8 +5,7 @@ namespace ConsoleApp1
 {
     class Program
     {
-        static char EscapeCharacter = 'R';
-        static string EscapeWord = "RUNYOUFOOLS";
+        static string EscapeWord = "exit";
 
         static void Main(string[] args)
         {
@@ -14,30 +13,41 @@ namespace ConsoleApp1
             Console.WriteLine("Introduzca las notas de los alumnos");
 
             var notasDeAlumnos = new List<double>();
+            var nombresDeAlumnos = new List<string>();
             var keepDoing = true;
 
             while (keepDoing)
             {
-                Console.WriteLine($"Nota del alumno {notasDeAlumnos.Count + 1}:");
-                var notaText = Console.ReadLine();
-
-                if (notaText == EscapeWord)
+                Console.WriteLine($"Nombre del alumno {nombresDeAlumnos.Count + 1}:");
+                var nombreText = Console.ReadLine();
+                if (nombreText == EscapeWord)
                 {
                     keepDoing = false;
-                }
-                else
+                } else
                 {
-                    var nota = 0.0;
+                    Console.WriteLine($"Nota del alumno {notasDeAlumnos.Count + 1}:");
+                    var notaText = Console.ReadLine();
 
-                    if (double.TryParse(notaText.Replace(".", ","), out nota))
+                    if (notaText == EscapeWord)
                     {
-                        notasDeAlumnos.Add(nota);
+                        keepDoing = false;
                     }
                     else
                     {
-                        Console.WriteLine("La nota introducida es incorrecta melón!");
+                        nombresDeAlumnos.Add(nombreText);
+
+                        var nota = 0.0;
+
+                        if (double.TryParse(notaText.Replace(".", ","), out nota))
+                        {
+                            notasDeAlumnos.Add(nota);
+                        }
+                        else
+                        {
+                            Console.WriteLine("La nota introducida es incorrecta melón!");
+                        }
                     }
-                }
+                }                
             }
 
             var suma = 0.0;
