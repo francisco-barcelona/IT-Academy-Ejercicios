@@ -77,7 +77,6 @@ namespace ConsoleApp1
                 } else
                 {
                     Console.WriteLine("La opción escogida no es válida, vuelva a intentarlo.");
-                    menu();
                 }                
             } 
 
