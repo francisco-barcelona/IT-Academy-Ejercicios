@@ -50,6 +50,13 @@ namespace ConsoleApp1
                 }                
             }
 
+            Console.WriteLine("Nombres de los alumnos: ");
+
+            for(var i = 0; i < nombresDeAlumnos.Count; i++)
+            {
+                Console.WriteLine(nombresDeAlumnos[i]);
+            }
+
             var suma = 0.0;
 
             for (var i = 0; i < notasDeAlumnos.Count; i++)
