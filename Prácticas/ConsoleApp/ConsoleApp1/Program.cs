@@ -6,115 +6,165 @@ namespace ConsoleApp1
 {
     class Program
     {
-        static string EscapeWord = "exit";
-        static string option;
-        static string option2;
+        static string CurrentOption { get; set; }
+
+        static List<double> Marks { get; set; }
 
         static void Main(string[] args)
         {
-            Console.WriteLine("Bienvenid@ al programa para gestión de alumnos");
-            Console.WriteLine("Introduzca las notas de los alumnos");
+            Marks = new List<double>();
 
-            var notasDeAlumnos = new List<double>();
-            var nombresDeAlumnos = new List<string>();
-            var keepDoing = true;
+            Console.WriteLine("Bienvenidos al programa de gestión de clase");
+            ShowMainMenu();
 
-            while (keepDoing)
+            while (true)
             {
-                menu();
-                option = Console.ReadLine();
-                if(option == "i")
+                var option = Console.ReadKey().KeyChar;
+
+                if (option == 'm')
                 {
-                    Console.WriteLine($"Nombre del alumno {nombresDeAlumnos.Count + 1}:");
-                    var nombreText = Console.ReadLine();
-                    if (nombreText == EscapeWord)
+                    ClearCurrentConsoleLine();
+                    if (CurrentOption != "m")
                     {
-                        keepDoing = false;
+                        Console.WriteLine();
+                        ShowMainMenu();
                     }
-                    else
-                    {
-                        Console.WriteLine($"Nota del alumno {notasDeAlumnos.Count + 1}:");
-                        var notaText = Console.ReadLine();
-
-                        if (notaText == EscapeWord)
-                        {
-                            keepDoing = false;
-                        }
-                        else
-                        {
-                            nombresDeAlumnos.Add(nombreText);
-
-                            var nota = 0.0;
-
-                            if (double.TryParse(notaText.Replace(".", ","), out nota))
-                            {
-                                notasDeAlumnos.Add(nota);
-                            }
-                            else
-                            {
-                                Console.WriteLine("La nota introducida es incorrecta melón!");
-
-                            }
-                        }
-                    }
-                } else if(option == "s")
+                }
+                else if (option == 'n')
                 {
-                    Console.WriteLine("Nombres de los alumnos: ");
-
-                    for (var i = 0; i < nombresDeAlumnos.Count; i++)
+                    ClearCurrentConsoleLine();
+                    if (CurrentOption != "n")
                     {
-                        Console.WriteLine(nombresDeAlumnos[i]);
+                        Console.WriteLine();
+                        ShowAddNotesMenu();
                     }
-                } else if(option == "e")
+                }
+                else if (option == 'c')
                 {
-                    estadisticas();
-                    option2 = Console.ReadLine();
-                    if(option2 == "med")
+                    ClearCurrentConsoleLine();
+                    if (CurrentOption != "c")
                     {
-                        var suma = 0.0;
-
-                        for (var i = 0; i < notasDeAlumnos.Count; i++)
-                        {
-                            suma += notasDeAlumnos[i];
-                        }
-
-                        var average = suma / notasDeAlumnos.Count;
-                        Console.WriteLine("la media los exámenes es: {0}", average);
-                    } else if(option2 == "max")
-                    {
-                        var max = 0.0;
-                        max = notasDeAlumnos.Max();
-                        Console.WriteLine("la nota máxima de los exámenes es: {0}", max);
-                    } else if (option2 == "min")
-                    {
-                        var min = 0.0;
-                        min = notasDeAlumnos.Min();
-                        Console.WriteLine("la nota mínima de los exámenes es: {0}", min);
-                    } else
-                    {
-                        Console.WriteLine("La opción escogida no es válida, vuelva a intentarlo.");
+                        Console.WriteLine();
+                        ShowStatisticsMenu();
                     }
+                }
+            }
+        }
+
+        static void ShowMainMenu()
+        {
+            CurrentOption = "m";
+            Console.WriteLine("Menu de opciones principal");
+
+            Console.WriteLine("Opciones: m - para volver a este menu");
+            Console.WriteLine("Opciones: n - añadir notas de alumnos");
+            Console.WriteLine("Opciones: c - Estadísticas");
+        }
+
+        static void ShowAddNotesMenu()
+        {
+            CurrentOption = "n";
+            Console.WriteLine("Menu de añadir notas. Añada notasy presione al enter");
+            Console.WriteLine("Presione m para acabar y volver al menú principal");
+
+            while (true)
+            {
+                var notaText = Console.ReadLine();
+
+                if (notaText == "m")
+                {
+                    break;
                 }
                 else
                 {
-                    
-                }                
-            } 
-
-            static void menu()
-            {
-                Console.WriteLine("Menú de opciones de la escuela:");
-                Console.WriteLine("Pulsa 'i' para insertar notas de exámenes.");
-                Console.WriteLine("Pulsa 's' para ver nombres de alumnos.");
-                Console.WriteLine("Pulsa 'e' para ver estadísticas de los alumnos.");
-            }  
-            
-            static void estadisticas()
-            {
-                Console.WriteLine("Pulsa 'med' para ver la media de las notas de los alumnos");
-                Console.WriteLine("Pulsa 'max' para ver la máxima nota de los alumnos");
-                Console.WriteLine("Pulsa 'min' para ver la mínima nota de los alumnos");
+                    double nota;
+                    if (double.TryParse(notaText.Replace(".", ","), out nota))
+                    {
+                        Marks.Add(nota);
+                    }
+                    else
+                    {
+                        Console.WriteLine($"valor introducidio [{notaText}] no válido");
+                    }
+                }
             }
+
+            ClearCurrentConsoleLine();
+            Console.WriteLine();
+            ShowMainMenu();
         }
+
+        static void ShowStatisticsMenu()
+        {
+            CurrentOption = "c";
+
+            Console.WriteLine("Opción de Estadísticas");
+            Console.WriteLine("Presione m para acabar y volver al menú principal");
+            Console.WriteLine("Opciones: avg - obtener la media de las notas de los alumnos");
+            Console.WriteLine("Opciones: max - obtener la máxima nota de los alumnos");
+            Console.WriteLine("Opciones: max - obtener la mínima nota de los alumnos");
+
+            while (true)
+            {
+                var optionText = Console.ReadLine();
+
+                if (optionText == "m")
+                {
+                    break;
+                }
+                else if (optionText == "avg")
+                {
+                    ShowAverage();
+                }
+            }
+
+            ClearCurrentConsoleLine();
+            Console.WriteLine();
+            ShowMainMenu();
+        }
+
+        static void ShowAverage()
+        {
+            //var avg = GetAverage();
+            Console.WriteLine($"La media actual es: {Marks.Average()}");
+            Console.WriteLine();
+        }
+
+        static void ShowMinimum()
+        {
+            Console.WriteLine("La nota más baja es: ");
+            Console.WriteLine();
+        }
+
+        static void ShowMaximum()
+        {
+            Console.WriteLine("La nota más alta es: ");
+            Console.WriteLine();
+        }
+
+        public static void ClearCurrentConsoleLine()
+        {
+            int currentLineCursor = Console.CursorTop;
+            Console.SetCursorPosition(0, Console.CursorTop);
+            Console.Write(new string(' ', Console.WindowWidth));
+            Console.SetCursorPosition(0, currentLineCursor);
+        }
+
+        #region Formulas
+
+        public static double GetAverage()
+        {
+            var sum = 0.0;
+
+            for (var i = 0; i < Marks.Count; i++)
+            {
+                sum += Marks[i];
+            }
+
+            return sum / Marks.Count;
+        }
+
+
+        #endregion
     }
 }
