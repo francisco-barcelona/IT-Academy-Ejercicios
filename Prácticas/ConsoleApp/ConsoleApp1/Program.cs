@@ -116,6 +116,14 @@ namespace ConsoleApp1
                 {
                     ShowAverage();
                 }
+                else if (optionText == "max")
+                {
+                    ShowMaximum();
+                }
+                else if (optionText == "min")
+                {
+                    ShowMinimum();
+                }
             }
 
             ClearCurrentConsoleLine();
@@ -132,13 +140,13 @@ namespace ConsoleApp1
 
         static void ShowMinimum()
         {
-            Console.WriteLine("La nota más baja es: ");
+            Console.WriteLine($"La nota más baja es: {Marks.Min()}");
             Console.WriteLine();
         }
 
         static void ShowMaximum()
         {
-            Console.WriteLine("La nota más alta es: ");
+            Console.WriteLine($"La nota más alta es: {Marks.Max()}");
             Console.WriteLine();
         }
 
