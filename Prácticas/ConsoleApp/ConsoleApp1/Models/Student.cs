@@ -6,5 +6,8 @@ namespace ConsoleApp1.Models
 {
     class Student
     {
+        public string Name { get; set; }
+        public string Dni { get; set; }
+        public List<double> Marks { get; set; }
     }
 }
