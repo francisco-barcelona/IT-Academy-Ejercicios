@@ -6,5 +6,7 @@ namespace ConsoleApp1.Models
 {
     class Subject
     {
+        public string Name { get; set; }
+
     }
 }

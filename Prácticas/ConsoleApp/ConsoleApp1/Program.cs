@@ -9,10 +9,15 @@ namespace ConsoleApp1
         static string CurrentOption { get; set; }
 
         static List<double> Marks { get; set; }
+        static List<double> Student { get; set; }
+        static List<double> Subject { get; set; }
 
         static void Main(string[] args)
         {
             Marks = new List<double>();
+            Dictionary<string, List<double>> Exams = new Dictionary<string, List<double>>();
+            Dictionary<string, string> Students = new Dictionary<string, string>();
+            Dictionary<string, string> Subjects = new Dictionary<string, string>();
 
             Console.WriteLine("Bienvenidos al programa de gestión de clase");
             ShowMainMenu();
