@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ConsoleApp1.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -8,16 +9,18 @@ namespace ConsoleApp1
     {
         static string CurrentOption { get; set; }
 
+        static List<double> Exams { get; set; }
+        static List<Student> Students { get; set; }
+        static List<string> Subjects { get; set; }
         static List<double> Marks { get; set; }
-        static List<double> Student { get; set; }
-        static List<double> Subject { get; set; }
 
         static void Main(string[] args)
         {
-            Marks = new List<double>();
             Dictionary<string, List<double>> Exams = new Dictionary<string, List<double>>();
-            Dictionary<string, string> Students = new Dictionary<string, string>();
+            
             Dictionary<string, string> Subjects = new Dictionary<string, string>();
+
+            Dictionary<string, string> Students = new Dictionary<string, string>();
 
             Console.WriteLine("Bienvenidos al programa de gestión de clase");
             ShowMainMenu();
@@ -41,7 +44,7 @@ namespace ConsoleApp1
                     if (CurrentOption != "n")
                     {
                         Console.WriteLine();
-                        ShowAddNotesMenu();
+                        ShowAddNotesMenu(Students,Exams);
                     }
                 }
                 else if (option == 'c')
@@ -64,12 +67,12 @@ namespace ConsoleApp1
             Console.WriteLine("Opciones: m - para volver a este menu");
             Console.WriteLine("Opciones: n - añadir notas de alumnos");
             Console.WriteLine("Opciones: c - Estadísticas");
-        }
+        }        
 
-        static void ShowAddNotesMenu()
+        static void ShowAddNotesMenu(Dictionary<string, string> Students, Dictionary<string, List<double>> Exams)
         {
             CurrentOption = "n";
-            Console.WriteLine("Menu de añadir notas. Añada notasy presione al enter");
+            Console.WriteLine("Menu de añadir notas. Añada notas con el formato [dni*nombre*notas] y presione enter");
             Console.WriteLine("Presione m para acabar y volver al menú principal");
 
             while (true)
@@ -82,15 +85,33 @@ namespace ConsoleApp1
                 }
                 else
                 {
+                    char[] c1 = { '*' };
+                    var spaso = notaText.Split(c1);
+
+                    var dni = spaso[0];
+                    var name = spaso[1];
+                    var markText = spaso[2].Replace(".", ",");
+
+                    #region Nota
                     double nota;
-                    if (double.TryParse(notaText.Replace(".", ","), out nota))
+                    if (double.TryParse(markText, out nota))
                     {
-                        Marks.Add(nota);
+                        if (!Students.ContainsKey(dni))
+                        {
+                            Students.Add(dni, name);
+                            Exams.Add(dni, new List<double>());
+                            Exams[dni].Add(nota);
+                        } else
+                        {
+                            Exams[dni].Add(nota);
+                        }
                     }
                     else
                     {
-                        Console.WriteLine($"valor introducidio [{notaText}] no válido");
+                        Console.WriteLine($"valor introducido [{notaText}] no válido");
                     }
+                    #endregion
+
                 }
             }
 
