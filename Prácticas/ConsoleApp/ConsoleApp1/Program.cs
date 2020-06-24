@@ -1,6 +1,7 @@
 ﻿using ConsoleApp1.Models;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 
 namespace ConsoleApp1
@@ -20,7 +21,7 @@ namespace ConsoleApp1
             
             Dictionary<string, string> Subjects = new Dictionary<string, string>();
 
-            Dictionary<string, string> Students = new Dictionary<string, string>();
+            Dictionary<string, Student> Students = new Dictionary<string, Student>();
 
             Console.WriteLine("Bienvenidos al programa de gestión de clase");
             ShowMainMenu();
@@ -69,7 +70,7 @@ namespace ConsoleApp1
             Console.WriteLine("Opciones: c - Estadísticas");
         }        
 
-        static void ShowAddNotesMenu(Dictionary<string, string> Students, Dictionary<string, List<double>> Exams)
+        static void ShowAddNotesMenu(Dictionary<string, Student> Students, Dictionary<string, List<double>> Exams)
         {
             CurrentOption = "n";
             Console.WriteLine("Menu de añadir notas. Añada notas con el formato [dni*nombre*notas] y presione enter");
@@ -98,12 +99,12 @@ namespace ConsoleApp1
                     {
                         if (!Students.ContainsKey(dni))
                         {
-                            Students.Add(dni, name);
-                            Exams.Add(dni, new List<double>());
-                            Exams[dni].Add(nota);
+                            Student student = new Student(name,dni,nota);
+                            Students.Add(dni, student);
+                            student.printMarks();
                         } else
                         {
-                            Exams[dni].Add(nota);
+                            Students[dni].addMarks(nota);
                         }
                     }
                     else
@@ -114,6 +115,9 @@ namespace ConsoleApp1
 
                 }
             }
+
+            // The data persist in the list Students
+             foreach (var item in Students.OrderBy(person => person.Key)) Console.WriteLine(item);
 
             ClearCurrentConsoleLine();
             Console.WriteLine();
