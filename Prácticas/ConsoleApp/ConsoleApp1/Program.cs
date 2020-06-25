@@ -1,7 +1,6 @@
-﻿using ConsoleApp1.Models;
+﻿using StudentsFromHell.Lib.Models;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Linq;
 
 namespace ConsoleApp1
@@ -10,18 +9,14 @@ namespace ConsoleApp1
     {
         static string CurrentOption { get; set; }
 
-        static List<double> Exams { get; set; }
+        static List<Exam> Exams { get; set; }
         static List<Student> Students { get; set; }
-        static List<string> Subjects { get; set; }
-        static List<double> Marks { get; set; }
+        static List<Subject> Subjects { get; set; }
 
         static void Main(string[] args)
         {
-            Dictionary<string, List<double>> Exams = new Dictionary<string, List<double>>();
-            
-            Dictionary<string, string> Subjects = new Dictionary<string, string>();
-
-            Dictionary<string, Student> Students = new Dictionary<string, Student>();
+            Exams = new Dictionary<string, List<double>>();
+            Students = new Dictionary<string, string>();
 
             Console.WriteLine("Bienvenidos al programa de gestión de clase");
             ShowMainMenu();
@@ -39,16 +34,16 @@ namespace ConsoleApp1
                         ShowMainMenu();
                     }
                 }
-                else if (option == 'n')
+                else if( option == 'n')
                 {
                     ClearCurrentConsoleLine();
                     if (CurrentOption != "n")
                     {
                         Console.WriteLine();
-                        ShowAddNotesMenu(Students,Exams);
+                        ShowAddNotesMenu();
                     }
                 }
-                else if (option == 'c')
+                else if(option == 'c')
                 {
                     ClearCurrentConsoleLine();
                     if (CurrentOption != "c")
@@ -68,12 +63,12 @@ namespace ConsoleApp1
             Console.WriteLine("Opciones: m - para volver a este menu");
             Console.WriteLine("Opciones: n - añadir notas de alumnos");
             Console.WriteLine("Opciones: c - Estadísticas");
-        }        
+        }
 
-        static void ShowAddNotesMenu(Dictionary<string, Student> Students, Dictionary<string, List<double>> Exams)
+        static void ShowAddNotesMenu()
         {
             CurrentOption = "n";
-            Console.WriteLine("Menu de añadir notas. Añada notas con el formato [dni*nombre*notas] y presione enter");
+            Console.WriteLine("Menu de añadir notas. Añada notas [dni*nombre*nota] y presione al enter");
             Console.WriteLine("Presione m para acabar y volver al menú principal");
 
             while (true)
@@ -84,7 +79,7 @@ namespace ConsoleApp1
                 {
                     break;
                 }
-                else
+                else                
                 {
                     char[] c1 = { '*' };
                     var spaso = notaText.Split(c1);
@@ -97,27 +92,29 @@ namespace ConsoleApp1
                     double nota;
                     if (double.TryParse(markText, out nota))
                     {
-                        if (!Students.ContainsKey(dni))
-                        {
-                            Student student = new Student(name,dni,nota);
-                            Students.Add(dni, student);
-                            student.printMarks();
-                        } else
-                        {
-                            Students[dni].addMarks(nota);
-                        }
+                        if (!Marks.ContainsKey(dni))
+                            Marks.Add(dni, new List<double>());
+
+                        Marks[dni].Add(nota);
                     }
                     else
                     {
-                        Console.WriteLine($"valor introducido [{notaText}] no válido");
+                        Console.WriteLine($"valor introducidio [{notaText}] no válido");
                     }
+                    #endregion
+
+                    #region Name
+
+                    if (!Students.ContainsKey(dni))
+                        Students.Add(dni, name);
+                    else if(!string.IsNullOrEmpty(name))
+                    //else if (name != "" && name != null)
+                        Students[dni] = name;
+
                     #endregion
 
                 }
             }
-
-            // The data persist in the list Students
-             foreach (var item in Students.OrderBy(person => person.Key)) Console.WriteLine(item);
 
             ClearCurrentConsoleLine();
             Console.WriteLine();
@@ -146,14 +143,6 @@ namespace ConsoleApp1
                 {
                     ShowAverage();
                 }
-                else if (optionText == "max")
-                {
-                    ShowMaximum();
-                }
-                else if (optionText == "min")
-                {
-                    ShowMinimum();
-                }
             }
 
             ClearCurrentConsoleLine();
@@ -163,22 +152,26 @@ namespace ConsoleApp1
 
         static void ShowAverage()
         {
-            //var avg = GetAverage();
-            Console.WriteLine($"La media actual es: {Marks.Average()}");
+            var avg =  Marks.Values
+                            .SelectMany(x => x)
+                            .Where(x => x > 3)
+                            .Average();
+
+            Console.WriteLine($"La media actual es: {avg}");
             Console.WriteLine();
         }
 
         static void ShowMinimum()
         {
-            Console.WriteLine($"La nota más baja es: {Marks.Min()}");
+            Console.WriteLine("La nota más baja es: ");
             Console.WriteLine();
         }
 
         static void ShowMaximum()
         {
-            Console.WriteLine($"La nota más alta es: {Marks.Max()}");
+            Console.WriteLine("La nota más alta es: ");
             Console.WriteLine();
-        }
+        }     
 
         public static void ClearCurrentConsoleLine()
         {
