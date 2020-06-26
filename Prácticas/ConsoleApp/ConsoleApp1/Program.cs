@@ -1,4 +1,6 @@
-﻿using StudentsFromHell.Lib.Models;
+﻿using Academy.Lib.Context;
+using Academy.Lib.Infrastructure;
+using Academy.Lib.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,17 +9,10 @@ namespace ConsoleApp1
 {
     class Program
     {
-        static string CurrentOption { get; set; }
-
-        static List<Exam> Exams { get; set; }
-        static List<Student> Students { get; set; }
-        static List<Subject> Subjects { get; set; }
+        public static string CurrentOption { get; set; }
 
         static void Main(string[] args)
         {
-            Exams = new Dictionary<string, List<double>>();
-            Students = new Dictionary<string, string>();
-
             Console.WriteLine("Bienvenidos al programa de gestión de clase");
             ShowMainMenu();
 
@@ -32,6 +27,15 @@ namespace ConsoleApp1
                     {
                         Console.WriteLine();
                         ShowMainMenu();
+                    }
+                }
+                else if (option == 'a')
+                {
+                    ClearCurrentConsoleLine();
+                    if (CurrentOption != "a")
+                    {
+                        Console.WriteLine();
+                        ShowHandleStudentsMenu();
                     }
                 }
                 else if( option == 'n')
@@ -54,15 +58,132 @@ namespace ConsoleApp1
                 }
             }
         }
-
+        
         static void ShowMainMenu()
         {
             CurrentOption = "m";
             Console.WriteLine("Menu de opciones principal");
 
             Console.WriteLine("Opciones: m - para volver a este menu");
+            Console.WriteLine("Opciones: a - gestionar alumnos");
             Console.WriteLine("Opciones: n - añadir notas de alumnos");
             Console.WriteLine("Opciones: c - Estadísticas");
+        }
+
+        static void ShowHandleStudentsMenu()
+        {
+            CurrentOption = "a";
+            Console.WriteLine("Menu de gestionar alumnos.");
+            Console.WriteLine("Opciones: a - para añadir un nuevo almuno");
+            Console.WriteLine("Opciones: e + dni - para editar un alumno existente");
+            Console.WriteLine("Opciones: n - ver información del alumno");
+            Console.WriteLine("Opciones: n/e - ver exámenes de alumno");
+            Console.WriteLine("Opciones: n/e - ver asignaturas de alumno");
+            Console.WriteLine("Presione m para acabar y volver al menú principal");
+
+            while (true)
+            {
+                var option = Console.ReadLine();
+
+                if (option == "m")
+                {
+                    break;
+                }
+                else if (option == "a")
+                {
+                    Console.WriteLine("Para volver sin guardar alumno escriba  *.");
+                    Console.WriteLine("escriba el dni:");
+
+                    #region read dni
+                    var dni = Console.ReadLine();
+
+                    if (dni == "*")
+                        break;
+
+                    ValidationResult<string> dniValRes = Student.ValidateDni(dni, true);
+
+                    while (!dniValRes.IsSuccess)
+                    {
+                        foreach(var msg in dniValRes.Messages)
+                            Console.WriteLine(msg);
+
+                        dni = Console.ReadLine();
+                        dniValRes = Student.ValidateDni(dni, true);
+                    }
+
+                    if (dni == "*")
+                        break;
+
+                    #endregion
+
+                    #region read name
+                    Console.WriteLine("escriba el nombre y apellidos:");
+                    var name = Console.ReadLine();
+
+                    if (name == "*")
+                        break;
+
+                    ValidationResult<string> nameValRes = Student.ValidateName(name);
+
+                    while (!nameValRes.IsSuccess)
+                    {
+                        foreach (var msg in dniValRes.Messages)
+                            Console.WriteLine(msg);
+
+                        name = Console.ReadLine();
+                        nameValRes = Student.ValidateName(name);
+                    }
+
+                    #endregion
+
+                    #region read chair number
+                    Console.WriteLine("escriba el número de silla:");
+                    var chairNumberText = Console.ReadLine();
+
+                    if (chairNumberText == "*")
+                        break;
+
+                    ValidationResult<int> chairNumValRes = Student.ValidateChairNumber(chairNumberText);
+
+                    while (!chairNumValRes.IsSuccess)
+                    {
+                        foreach (var msg in chairNumValRes.Messages)
+                            Console.WriteLine(msg);
+
+                        chairNumberText = Console.ReadLine(); 
+                        chairNumValRes = Student.ValidateChairNumber(chairNumberText);
+                    }
+
+                    #endregion
+
+
+                    if (dniValRes.IsSuccess && nameValRes.IsSuccess && chairNumValRes.IsSuccess)
+                    {
+                        var student = new Student
+                        {
+                            Dni = dniValRes.ValidatedResult,
+                            Name = nameValRes.ValidatedResult,
+                            ChairNumber = chairNumValRes.ValidatedResult
+                        };
+
+                        student.Save();
+
+                        if (student.Save())
+                        {
+                            Console.WriteLine($"alumno guardado correctamente");
+                        }
+                        else
+                        {
+                            Console.WriteLine($"uno o más errores han ocurrido y el almuno no se guardado correctamente");
+                        }
+                    }        
+
+                }
+            }
+
+            ClearCurrentConsoleLine();
+            Console.WriteLine();
+            ShowMainMenu();
         }
 
         static void ShowAddNotesMenu()
@@ -89,27 +210,27 @@ namespace ConsoleApp1
                     var markText = spaso[2].Replace(".", ",");
 
                     #region Nota
-                    double nota;
-                    if (double.TryParse(markText, out nota))
-                    {
-                        if (!Marks.ContainsKey(dni))
-                            Marks.Add(dni, new List<double>());
+                    //double nota;
+                    //if (double.TryParse(markText, out nota))
+                    //{
+                    //    if (!Marks.ContainsKey(dni))
+                    //        Marks.Add(dni, new List<double>());
 
-                        Marks[dni].Add(nota);
-                    }
-                    else
-                    {
-                        Console.WriteLine($"valor introducidio [{notaText}] no válido");
-                    }
+                    //    Marks[dni].Add(nota);
+                    //}
+                    //else
+                    //{
+                    //    Console.WriteLine($"valor introducidio [{notaText}] no válido");
+                    //}
                     #endregion
 
                     #region Name
 
-                    if (!Students.ContainsKey(dni))
-                        Students.Add(dni, name);
-                    else if(!string.IsNullOrEmpty(name))
-                    //else if (name != "" && name != null)
-                        Students[dni] = name;
+                    //if (!Students.ContainsKey(dni))
+                    //    Students.Add(dni, name);
+                    //else if(!string.IsNullOrEmpty(name))
+                    ////else if (name != "" && name != null)
+                    //    Students[dni] = name;
 
                     #endregion
 
@@ -152,11 +273,12 @@ namespace ConsoleApp1
 
         static void ShowAverage()
         {
-            var avg =  Marks.Values
-                            .SelectMany(x => x)
-                            .Where(x => x > 3)
-                            .Average();
+            //var avg =  Marks.Values
+            //                .SelectMany(x => x)
+            //                .Where(x => x > 3)
+            //                .Average();
 
+            var avg = 0.0;
             Console.WriteLine($"La media actual es: {avg}");
             Console.WriteLine();
         }
@@ -187,12 +309,13 @@ namespace ConsoleApp1
         {
             var sum = 0.0;
 
-            for (var i = 0; i < Marks.Count; i++)
-            {
-                sum += Marks[i];
-            }
+            //for (var i = 0; i < Marks.Count; i++)
+            //{
+            //    sum += Marks[i];
+            //}
 
-            return sum / Marks.Count;
+            //return sum / Marks.Count;
+            return sum;
         }
 
 

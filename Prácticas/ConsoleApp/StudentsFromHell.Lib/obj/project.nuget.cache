@@ -1,0 +1,11 @@
+{
+  "version": 2,
+  "dgSpecHash": "gSdlfTXsxSZFHJhk/q52/fuTJp27WkGEmrSZoYOg3wAX1orvlV+3s1cGhoGgFZotpDaJNFY/udDYZ6nUMOSI5Q==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\Pak\\Documents\\Curso .NET\\Ejercicios\\Prácticas\\ConsoleApp\\StudentsFromHell.Lib\\Academy.Lib.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\Pak\\.nuget\\packages\\microsoft.netcore.platforms\\1.1.0\\microsoft.netcore.platforms.1.1.0.nupkg.sha512",
+    "C:\\Users\\Pak\\.nuget\\packages\\netstandard.library\\2.0.3\\netstandard.library.2.0.3.nupkg.sha512"
+  ],
+  "logs": []
+}

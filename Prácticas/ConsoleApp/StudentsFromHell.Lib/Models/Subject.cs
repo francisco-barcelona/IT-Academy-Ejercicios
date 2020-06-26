@@ -1,6 +1,6 @@
-﻿namespace StudentsFromHell.Lib.Models
+﻿namespace Academy.Lib.Models
 {
-    public class Subject
+    public class Subject : Entity
     {
         public string Name { get; set; }
     }

@@ -1,8 +1,8 @@
 ﻿using System;
 
-namespace StudentsFromHell.Lib.Models
+namespace Academy.Lib.Models
 {
-    public class Exam
+    public class Exam : Entity
     {
         public DateTime DateStamp { get; set; }
 
