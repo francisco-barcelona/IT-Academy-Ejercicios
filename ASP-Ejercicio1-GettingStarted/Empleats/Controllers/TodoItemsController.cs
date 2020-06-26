@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Empleats.Models;
+using System.Drawing.Printing;
 
 namespace Empleats.Controllers
 {
@@ -22,9 +23,10 @@ namespace Empleats.Controllers
 
         // GET: api/TodoItems
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<TodoItem>>> GetTodoItems()
+        public string GetTodoItems()
         {
-            return await _context.TodoItems.ToListAsync();
+            var saludo = "Hola Mundo";
+            return saludo;
         }
 
         // GET: api/TodoItems/5
