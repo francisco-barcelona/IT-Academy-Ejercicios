@@ -23,10 +23,17 @@ namespace Empleats.Controllers
 
         // GET: api/TodoItems
         [HttpGet]
-        public string GetTodoItems()
+        public string GetTodoItems(string name)
         {
-            var saludo = "Hola Mundo";
-            return saludo;
+            if (name == null)
+            {
+                var saludo = "Hola Mundo";
+                return saludo;
+            }
+            else
+            {
+                return name;
+            }
         }
 
         // GET: api/TodoItems/5

@@ -147,3 +147,4 @@ C:\Users\Pak\Documents\Curso .NET\Ejercicios\ASP-Ejercicio1-GettingStarted\Emple
 C:\Users\Pak\Documents\Curso .NET\Ejercicios\ASP-Ejercicio1-GettingStarted\Empleats\bin\Debug\netcoreapp3.1\zh-Hant\Microsoft.CodeAnalysis.Workspaces.resources.dll
 C:\Users\Pak\Documents\Curso .NET\Ejercicios\ASP-Ejercicio1-GettingStarted\Empleats\obj\Debug\netcoreapp3.1\Empleats.csproj.CoreCompileInputs.cache
 C:\Users\Pak\Documents\Curso .NET\Ejercicios\ASP-Ejercicio1-GettingStarted\Empleats\obj\Debug\netcoreapp3.1\Empleats.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\Pak\Documents\Curso .NET\Ejercicios\ASP-Ejercicio1-GettingStarted\Empleats\bin\Debug\netcoreapp3.1\System.Private.ServiceModel.dll
