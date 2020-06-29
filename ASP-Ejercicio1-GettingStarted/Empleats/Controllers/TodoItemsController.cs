@@ -6,7 +6,6 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Empleats.Models;
-using System.Drawing.Printing;
 
 namespace Empleats.Controllers
 {
@@ -23,19 +22,10 @@ namespace Empleats.Controllers
 
         // GET: api/TodoItems
         [HttpGet]
-        public string GetTodoItems(string name)
+        public async Task<ActionResult<IEnumerable<TodoItem>>> GetTodoItems()
         {
-            if (name == null)
-            {
-                var saludo = "Hola Mundo";
-                return saludo;
-            }
-            else
-            {
-                return name;
-            }
+            return await _context.TodoItems.ToListAsync();
         }
-
 
         // GET: api/TodoItems/5
         [HttpGet("{id}")]
@@ -92,8 +82,7 @@ namespace Empleats.Controllers
             _context.TodoItems.Add(todoItem);
             await _context.SaveChangesAsync();
 
-            //return CreatedAtAction("GetTodoItem", new { id = todoItem.Id }, todoItem);
-            return CreatedAtAction(nameof(GetTodoItem), new { id = todoItem.Id }, todoItem);
+            return CreatedAtAction("GetTodoItem", new { id = todoItem.Id }, todoItem);
         }
 
         // DELETE: api/TodoItems/5
