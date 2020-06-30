@@ -20,14 +20,14 @@ namespace Empleats.Controllers
             _context = context;
         }
 
-        // GET: api/TodoItems
+        // GET: api/TodoItems - Return all data
         [HttpGet]
         public async Task<ActionResult<IEnumerable<TodoItem>>> GetTodoItems()
         {
             return await _context.TodoItems.ToListAsync();
         }
 
-        // GET: api/TodoItems/5
+        // GET: api/TodoItems/5 - Return data by Id in URL
         [HttpGet("{id}")]
         public async Task<ActionResult<TodoItem>> GetTodoItem(long id)
         {
@@ -41,7 +41,7 @@ namespace Empleats.Controllers
             return todoItem;
         }
 
-        // PUT: api/TodoItems/5
+        // PUT: api/TodoItems/5 - Update data by Id in URL + data modified in Postman
         // To protect from overposting attacks, enable the specific properties you want to bind to, for
         // more details, see https://go.microsoft.com/fwlink/?linkid=2123754.
         [HttpPut("{id}")]
@@ -85,7 +85,7 @@ namespace Empleats.Controllers
             return CreatedAtAction("GetTodoItem", new { id = todoItem.Id }, todoItem);
         }
 
-        // DELETE: api/TodoItems/5
+        // DELETE: api/TodoItems/5 - Delete data by Id in URL
         [HttpDelete("{id}")]
         public async Task<ActionResult<TodoItem>> DeleteTodoItem(long id)
         {
